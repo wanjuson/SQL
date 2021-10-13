@@ -1,0 +1,62 @@
+211012
+Q2. 전체기간 의
+주문ID별, 주문시점 조리의 순번을 구하시오.
+(배달이 시작되지 않은 주문에 대해서 조리중으로 판단하며, 24시간 영업점이라고 가정)
+(TABLE : ORDER_INFO, REST_INFO, EXCP_INFO, DELIVERY_INFO)
+
+SELECT
+	ORD.ORDER_DATE AS 주문일
+	, ORD.ORDER_ID AS 주문번호
+	, REST_ID AS 레스토랑ID
+	, REST_NAME AS 레스토랑명
+	, 조리NO  조리순번
+FROM ORDER_INFO ORD
+	INNER JOIN REST_INFO REST ON ORD.REST_ID = REST .REST_ID 
+	-- 레스토랑정보에 없는 레스토랑은 주문이 일어날 수 없으며,
+	LEFT JOIN EXCP_INFO EXCP ON REST.REST_ID = EXCP .REST_ID
+	LEFT JOIN
+		(
+		SELECT 
+			A.REST_ID
+			, COUNT(DISTINCT A.ORDER_ID) AS 조리NO
+		FROM ORDER_INFO A
+			LEFT JOIN DELIVERY_INFO B ON A.REST_ID = B.REST_ID AND A.ORDER_DATE >= DEL.START_DATE
+		GROUP BY A.REST_ID
+		) DEL ON ORD.ORDER_ID = DEL.ORDER_ID
+WHERE 1=1
+	-- 레스토랑정보 에 영업시작일 이후의 주문건만 필요 (시작일포함)
+	AND ORD.ORDER_DATE >= REST.START_DATE
+	-- 예외정보 에 들어간 예외시작일 ~ 예외종료일 에 해당하는 레스토랑 주문건은 제외
+	AND ORD.ORDER_DATE < EXCP.START_DATE
+	AND ORD.ORDER_DATE > EXCP.END_DATE
+GROUP BY ORD.ORDER_DATE
+ORDER BY ORD.ORDER_DATE
+;
+
+
+-----------   틀림
+Q2. 전체기간 의
+주문ID별, 주문시점 조리의 순번을 구하시오.
+(배달이 시작되지 않은 주문에 대해서 조리중으로 판단하며, 24시간 영업점이라고 가정)
+(TABLE : ORDER_INFO, REST_INFO, EXCP_INFO, DELIVERY_INFO)
+
+SELECT
+	ORD.ORDER_DATE AS 주문일
+	, ORD.ORDER_ID AS 주문번호
+	, REST_ID AS 레스토랑ID
+	, REST_NAME AS 레스토랑명
+	, SUM(CASE WHEN ORD.ORDER_DATE >= DEL.START_DATE THEN 1 ELSE NULL END) AS 조리순번
+FROM ORDER_INFO ORD
+	INNER JOIN REST_INFO REST ON ORD.REST_ID = REST .REST_ID 
+	-- 레스토랑정보에 없는 레스토랑은 주문이 일어날 수 없으며,
+	LEFT JOIN EXCP_INFO EXCP ON REST.REST_ID = EXCP .REST_ID
+	LEFT JOIN DELIVERY_INFO DEL ON ORD.ORDER_ID = DEL.ORDER_ID
+WHERE 1=1
+	-- 레스토랑정보 에 영업시작일 이후의 주문건만 필요 (시작일포함)
+	AND ORD.ORDER_DATE >= REST.START_DATE
+	-- 예외정보 에 들어간 예외시작일 ~ 예외종료일 에 해당하는 레스토랑 주문건은 제외
+	AND ORD.ORDER_DATE < EXCP.START_DATE
+	AND ORD.ORDER_DATE > EXCP.END_DATE
+GROUP BY ORD.ORDER_DATE
+ORDER BY ORD.ORDER_DATE
+;
