@@ -1,0 +1,10 @@
+hackerrank_Prepare_Sql 2021
+
+-- Japanese Cities' Names
+SELECT NAME
+FROM CITY 
+WHERE COUNTRYCODE = 'JPN'
+;
+
+
+
