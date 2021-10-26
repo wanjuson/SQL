@@ -18,3 +18,12 @@ FROM STATION
 WHERE MOD(ID,2) = 0
 ;
  
+-- Weather Observation Station 4
+SELECT
+    COUNT(CITY) - COUNT(DISTINCT CITY)
+FROM STATION 
+;
+
+
+
+
