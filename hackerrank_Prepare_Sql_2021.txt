@@ -46,5 +46,13 @@ FROM
     ) B
 ;
 
+-- Weather Observation Station 6
+SELECT 
+    DISTINCT CITY
+FROM STATION
+WHERE 1=1
+    AND LEFT(CITY,1) IN ('a', 'e', 'i', 'o', 'u')
+;
+
 
 
