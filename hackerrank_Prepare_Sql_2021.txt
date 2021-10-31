@@ -55,4 +55,11 @@ WHERE 1=1
 ;
 
 
+-- Weather Observation Station 7
+SELECT 
+    DISTINCT CITY
+FROM STATION
+WHERE 1=1
+    AND RIGHT(CITY,1) IN ('a', 'e', 'i', 'o', 'u')
+;
 
