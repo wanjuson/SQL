@@ -72,3 +72,10 @@ WHERE 1=1
     AND RIGHT(CITY,1) IN ('a', 'e', 'i', 'o', 'u')
 ;
 
+-- Weather Observation Station 9
+SELECT 
+    DISTINCT CITY
+FROM STATION
+WHERE 1=1
+    AND LEFT(CITY,1) NOT IN ('a', 'e', 'i', 'o', 'u')
+;
