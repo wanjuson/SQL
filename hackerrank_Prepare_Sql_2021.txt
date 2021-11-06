@@ -105,3 +105,11 @@ WHERE 1=1
     AND LEFT(CITY,1) NOT IN ('a', 'e', 'i', 'o', 'u')
     AND RIGHT(CITY,1) NOT IN ('a', 'e', 'i', 'o', 'u')
 ;
+
+-- Higher Than 75 Marks
+SELECT 
+    NAME
+FROM STUDENTS 
+WHERE MARKS > 75
+ORDER BY RIGHT(NAME,3), ID ASC
+;
