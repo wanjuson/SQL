@@ -122,3 +122,11 @@ FROM Employee
 ORDER BY NAME
 ;
 
+
+
+
+-- Aggregation
+SELECT COUNT(ID)
+FROM CITY
+WHERE Population > 100000
+;
