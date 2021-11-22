@@ -142,3 +142,10 @@ SELECT CASE
         END
 FROM TRIANGLES
 ;
+
+
+-- Revising Aggregations - The Sum Function
+SELECT SUM(population )
+FROM CITY
+WHERE DISTRICT = 'California'
+;
