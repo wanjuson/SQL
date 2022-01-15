@@ -21,3 +21,9 @@ ORDER BY B.OCC_CNT ASC, B.OCCUPATION
 SELECT ROUND(AVG(POPULATION))
 FROM CITY
 ;
+
+-- Revising Aggregations - Averages
+SELECT  AVG(population)
+FROM CITY
+WHERE District  = 'California'
+;
