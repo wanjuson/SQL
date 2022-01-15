@@ -27,3 +27,11 @@ SELECT  AVG(population)
 FROM CITY
 WHERE District  = 'California'
 ;
+
+-- Higher Than 75 Marks
+SELECT 
+    NAME
+FROM STUDENTS 
+WHERE MARKS > 75
+ORDER BY RIGHT(NAME,3), ID ASC
+;
