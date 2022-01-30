@@ -1,4 +1,4 @@
-hackerrank_Prepare_Sql 2022
+hackerrank_Prepare_Sql 2022년 start
 
 -- The PADS
 SELECT
