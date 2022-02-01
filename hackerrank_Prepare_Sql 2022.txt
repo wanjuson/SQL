@@ -1,7 +1,7 @@
 hackerrank_Prepare_Sql 2022년 start
 
 -- The PADS
--- 문자열정리 
+-- 문자열 추출
 SELECT
     CONCAT(A.NAME, "(", LEFT(A.OCCUPATION,1), ")") AS AA
 FROM OCCUPATIONS A
