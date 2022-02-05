@@ -16,7 +16,7 @@ WHERE 1=1
 ORDER BY ANIMAL_ID ASC
 ;
 
--- NULL 처리하기
+-- NULL 처리하기 check
 SELECT 
     ANIMAL_TYPE
     , CASE WHEN NAME IS NULL THEN "No name"
