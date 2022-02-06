@@ -1,4 +1,4 @@
-hackerrank_Prepare_Sql 2022년 start
+﻿hackerrank_Prepare_Sql 2022년 start
 
 -- The PADS
 -- 문자열 추출
@@ -41,4 +41,10 @@ ORDER BY RIGHT(NAME,3), ID ASC
 SELECT A.*
 FROM ANIMAL_INS A
 ORDER BY ANIMAL_ID ASC
+;
+
+-- The Blunder
+SELECT
+    ROUND(AVG(Salary - MOD(Salary,10)- ROUND(MOD(Salary,100)/10) - ROUND(Salary/1000)))
+FROM EMPLOYEES
 ;
