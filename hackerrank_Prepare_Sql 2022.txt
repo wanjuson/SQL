@@ -29,7 +29,7 @@ FROM CITY
 WHERE District  = 'California'
 ;
 
--- Higher Than 75 Marks
+-- Higher Than 75 Marks/order
 SELECT 
     NAME
 FROM STUDENTS 
