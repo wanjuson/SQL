@@ -44,7 +44,6 @@ ORDER BY ANIMAL_ID ASC
 ;
 
 -- The Blunder
-SELECT
-    ROUND(AVG(Salary - MOD(Salary,10)- ROUND(MOD(Salary,100)/10) - ROUND(Salary/1000)))
-FROM EMPLOYEES
+select CEILING( avg(salary*1.0) - avg(cast(replace(salary, '0', '') as float)) ) 
+from EMPLOYEES
 ;
