@@ -43,7 +43,7 @@ FROM ANIMAL_INS A
 ORDER BY ANIMAL_ID ASC
 ;
 
--- The Blunder
+-- The Blunder summit
 select CEILING( avg(salary*1.0) - avg(cast(replace(salary, '0', '') as float)) ) 
 from EMPLOYEES
 ;
