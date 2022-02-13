@@ -46,3 +46,10 @@ ORDER BY ANIMAL_ID ASC
 select CEILING( avg(salary*1.0) - avg(cast(replace(salary, '0', '') as float)) ) 
 from EMPLOYEES
 ;
+
+-- Japan Population
+SELECT 
+    SUM(POPULATION)
+FROM CITY 
+WHERE COUNTRYCODE = 'JPN'
+;
