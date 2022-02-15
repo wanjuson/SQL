@@ -58,4 +58,20 @@ WHERE COUNTRYCODE = 'JPN'
 SELECT MAX(POPULATION) - MIN(POPULATION)
 FROM CITY
 ;
+
+-- New Companies
+SELECT
+    COM.company_code, COM.founder 
+    , COUNT(DISTINCT EE.lead_manager_code)
+    , COUNT(DISTINCT EE.senior_manager_code)
+    , COUNT(DISTINCT EE.manager_code)
+    , COUNT(DISTINCT EE.employee_code)
+
+FROM company COM
+    left JOIN employee EE ON COM.company_code = EE.company_code 
+WHERE EE.company_code IS NOT NULL
+GROUP BY COM.company_code, COM.founder 
+ORDER BY COM.company_code
 ;
+
+
