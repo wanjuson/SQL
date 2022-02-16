@@ -74,4 +74,8 @@ GROUP BY COM.company_code, COM.founder
 ORDER BY COM.company_code
 ;
 
+-- The Blunder
+SELECT CEIL(AVG(Salary)-AVG(REPLACE(Salary,'0',''))) 
+FROM EMPLOYEES
+;
 
