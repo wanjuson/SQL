@@ -79,3 +79,11 @@ SELECT CEIL(AVG(Salary)-AVG(REPLACE(Salary,'0','')))
 FROM EMPLOYEES
 ;
 
+-- Top Earners
+SELECT
+    MAX(MONTHS * SALARY)
+    , COUNT(*)
+FROM Employee 
+WHERE 1=1
+    AND MONTHS * SALARY = (SELECT MAX(MONTHS * SALARY) FROM Employee)
+;
