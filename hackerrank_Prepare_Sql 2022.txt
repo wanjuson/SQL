@@ -87,4 +87,10 @@ FROM Employee
 WHERE 1=1
     AND MONTHS * SALARY = (SELECT MAX(MONTHS * SALARY) FROM Employee)
 ;
+
+-- Weather Observation Station 2
+SELECT
+    ROUND(SUM(LAT_N ),2)
+    , ROUND(SUM(LONG_W ) , 2)
+FROM STATION 
 ;
