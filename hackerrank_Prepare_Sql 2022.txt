@@ -125,6 +125,27 @@ WHERE 1=1
 )
 ;
 
+
+-- Weather Observation Station 16
+SELECT
+    ROUND(MIN(LAT_N) ,4)
+FROM STATION
+WHERE 1=1
+    AND LAT_N > 38.778
+;
+
+-- Weather Observation Station 17
+SELECT
+    ROUND(MAX(LONG_W),4)
+FROM STATION
+WHERE LAT_N = (
+                SELECT
+                    MIN(LAT_N)
+                FROM STATION
+                WHERE LAT_N > 38.778
+              )
+;
+
 -- Population Census
 SELECT
     SUM(CITY.population)
