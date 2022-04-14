@@ -156,3 +156,14 @@ FROM CITY
 WHERE 1=1
     AND COUNTRY.CONTINENT =  'Asia'
 ;
+
+-- African Cities
+SELECT
+    CITY.NAME
+    
+FROM CITY 
+    LEFT JOIN COUNTRY ON CITY.CountryCode  = COUNTRY.Code
+
+WHERE 1=1
+    AND COUNTRY.CONTINENT =  'Africa'
+;
