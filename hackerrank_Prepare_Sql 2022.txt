@@ -193,4 +193,3 @@ AS
 )
 SELECT REPEAT('* ', n)
 FROM rnum
-;
