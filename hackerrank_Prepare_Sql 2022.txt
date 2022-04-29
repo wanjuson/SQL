@@ -192,5 +192,4 @@ AS
     WHERE n > 1
 )
 SELECT REPEAT('* ', n)
-FROM rnum
-;
+FROM rnu
