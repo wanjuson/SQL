@@ -194,3 +194,11 @@ AS
 SELECT REPEAT('* ', n)
 FROM rnu
 ;
+
+-- Revising the Select Query I
+SELECT *
+FROM CITY 
+WHERE 1=1
+    AND population  > 100000
+    AND CountryCode = 'USA'
+;
