@@ -211,3 +211,17 @@ WHERE 1=1
 GROUP BY HOUR(DATETIME)
 ORDER BY HOUR(DATETIME)
 ;
+
+-- Draw The Triangle 2
+WITH RECURSIVE cte AS
+(
+  SELECT 1 AS n, CAST('*' AS CHAR(100)) AS str
+  UNION ALL
+  SELECT n + 1, CONCAT(str, ' *') 
+  FROM cte 
+  WHERE n < 20
+)
+SELECT 
+    str 
+FROM cte
+;
