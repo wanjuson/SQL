@@ -223,5 +223,4 @@ WITH RECURSIVE cte AS
 )
 SELECT 
     str 
-FROM cte
-;
+FROM ctç
