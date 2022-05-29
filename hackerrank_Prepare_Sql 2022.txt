@@ -224,3 +224,4 @@ WITH RECURSIVE cte AS
 SELECT 
     str 
 FROM ctç
+;
