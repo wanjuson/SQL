@@ -225,3 +225,9 @@ SELECT
     str 
 FROM cte
 ;
+
+-- Japanese Cities' Names
+SELECT NAME
+FROM CITY 
+WHERE COUNTRYCODE = 'JPN'
+;
