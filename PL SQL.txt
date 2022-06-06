@@ -1,0 +1,13 @@
+PL SQL
+
+1. PL/SQL이란?
+ - 오라클에서 제공하는 SQL을 확장한 절차적 프로그래밍 언어
+ - Procedural Language extension to SQL의 약자
+ * 특징
+  1) SQL 문장에서 변수 정의, 조건 처리, 반복 처리 등 프로그래밍 언어가 보이는 제어 구조 제공
+  2) SQL과 프로그래밍 언어의 통합 접근 중 한 형태; SQL/PSM
+
+2. [언어 구조]
+ 1) 블록단위 구조
+  - 임의의 수의 중첩된 하위 블록 포함
+  - 선언부(DECLARE), 실행부(BEGIN … END), 예외 처리부(EXCEPTION) 구성
