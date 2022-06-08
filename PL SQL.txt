@@ -11,3 +11,7 @@ PL SQL
  1) 블록단위 구조
   - 임의의 수의 중첩된 하위 블록 포함
   - 선언부(DECLARE), 실행부(BEGIN … END), 예외 처리부(EXCEPTION) 구성
+
+3. 변수
+ 1) 수치 변수
+variable_name number([P, S]) := 0;
