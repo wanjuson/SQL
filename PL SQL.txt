@@ -15,3 +15,6 @@ PL SQL
 3. 변수
  1) 수치 변수
 variable_name number([P, S]) := 0;
+
+ 2) 문자 변수
+variable_name varchar2(20) := 'Text';
