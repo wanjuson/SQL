@@ -255,3 +255,9 @@ FROM ANIMAL_INS
 ORDER BY DATETIME ASC
 LIMIT 1
 ;
+
+-- Revising Aggregations - The Sum Function
+SELECT SUM(population )
+FROM CITY
+WHERE DISTRICT = 'California'
+;
