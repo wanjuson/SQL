@@ -256,15 +256,31 @@ ORDER BY DATETIME ASC
 LIMIT 1
 ;
 
-<<<<<<< HEAD
 -- Revising Aggregations - The Sum Function
 SELECT SUM(population )
 FROM CITY
 WHERE DISTRICT = 'California'
-=======
+;
+
 -- Select All
 SELECT
     *
 FROM CITY 
->>>>>>> 58f5e1660bd457de1c4fd75f040ff3aeb5e9ad65
+;
+
+-- The PADS
+SELECT
+    CONCAT(A.NAME, "(", LEFT(A.OCCUPATION,1), ")") AS AA
+FROM OCCUPATIONS A
+ORDER BY A.NAME
+;
+SELECT
+    CONCAT("There are a total of ", B.OCC_CNT, " ", LOWER(B.OCCUPATION), "s.") AS AA
+FROM 
+    (
+        SELECT OCCUPATION, COUNT(NAME) AS OCC_CNT
+        FROM OCCUPATIONS
+        GROUP BY OCCUPATION
+    ) B
+ORDER BY B.OCC_CNT ASC, B.OCCUPATION 
 ;
