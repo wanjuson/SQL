@@ -1,5 +1,17 @@
 ﻿hackerrank_Prepare_Sql 2022년 start
 
+-- Placements
+SELECT
+    Students.NAME
+FROM Students 
+    LEFT JOIN Friends ON Students.ID = Friends.ID
+    LEFT JOIN Packages AS Packages1 ON Students.ID = Packages1.ID
+    LEFT JOIN Packages AS Packages2 ON Friends.FRIEND_ID = Packages2.ID
+WHERE 1=1
+    AND Packages1.Salary < Packages2.Salary
+ORDER BY Packages2.Salary ASC
+;
+
 -- The PADS 문자 추출
         FROM OCCUPATIONS
         GROUP BY OCCUPATION
