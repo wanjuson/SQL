@@ -31,6 +31,7 @@ SELECT
 FROM OCCUPATIONS A
 ORDER BY A.NAME
 ;
+
 SELECT
     CONCAT("There are a total of ", B.OCC_CNT, " ", LOWER(B.OCCUPATION), "s.") AS AA
 FROM 
