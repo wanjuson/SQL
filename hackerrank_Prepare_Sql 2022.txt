@@ -1,5 +1,36 @@
 ﻿hackerrank_Prepare_Sql 2022년 start
 
+-- Interviews
+-- LEFT JOIN으로 다중테이블 조인시에 데이터 중복으로 늘어나는거 조심조심
+SELECT co.contest_id, 
+        co.hacker_id, 
+        co.name, 
+        sum(s.total_submissions) as ts , 
+        sum(s.total_accepted_submissions) as tas, 
+        sum(v.total_views) as tv, 
+        sum(v.total_unique_views) as tuv 
+        FROM Challenges c 
+            JOIN Colleges cl 
+            ON cl.college_id = c.college_id 
+            JOIN Contests co 
+            ON co.contest_id = cl.contest_id 
+            LEFT JOIN (SELECT challenge_id,
+                              SUM(total_submissions) as total_submissions,
+                              SUM(total_accepted_submissions) as total_accepted_submissions
+                              FROM Submission_Stats 
+                              GROUP BY challenge_id
+                      ) as s ON s.challenge_id = c.challenge_id
+            LEFT JOIN (SELECT challenge_id,
+                           SUM(total_views) as total_views,
+                           SUM(total_unique_views) as total_unique_views
+                           FROM View_Stats
+                           GROUP BY challenge_id                     
+                        ) as v ON v.challenge_id = c.challenge_id
+            GROUP BY co.contest_id,co.hacker_id,co.name 
+            having ts+tas+tv+tuv > 0 
+            ORDER BY co.contest_id
+;
+
 -- type of triangle
 SELECT (CASE
         WHERE A+B>C AND B+C>A AND A+C>B THEN 
@@ -11,7 +42,6 @@ SELECT (CASE
        ELSE 'Not A Triangle'
        END)
 ;
-
 
 -- The Blunder
 SELECT CEIL(AVG(Salary)-AVG(REPLACE(Salary,'0',''))) 
