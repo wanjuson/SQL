@@ -31,6 +31,7 @@ SELECT co.contest_id,
             ORDER BY co.contest_id
 ;
 
+
 -- type of triangle
 SELECT (CASE
         WHERE A+B>C AND B+C>A AND A+C>B THEN 
