@@ -1,4 +1,4 @@
-﻿hackerrank_Prepare_Sql 2022년 start
+﻿hackerrank_Prepare_Sql 2022년 start 
 -- Interviews
 -- LEFT JOIN으로 다중테이블 조인시에 데이터 중복으로 늘어나는거 조심조심
 SELECT co.contest_id, 
