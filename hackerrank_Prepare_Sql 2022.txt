@@ -2,7 +2,7 @@
 -- Interviews
 -- LEFT JOIN으로 다중테이블 조인시에 데이터 중복으로 늘어나는거 조심조심
 SELECT co.contest_id, 
-        co.hacker_id, 
+        co.hacker_id,
         co.name, 
         sum(s.total_submissions) as ts , 
         sum(s.total_accepted_submissions) as tas, 
