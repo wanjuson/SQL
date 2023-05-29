@@ -1,0 +1,14 @@
+-- Top Earners
+SELECT
+    earn_max.earnings_max
+    , COUNT(em.employee_id)
+FROM Employee em
+    LEFT JOIN
+        (
+            SELECT MAX(salary*months) AS earnings_max
+            FROM Employee
+        ) earn_max
+        ON (em.salary*em.months) = earn_max.earnings_max
+WHERE earn_max.earnings_max IS NOT NULL
+GROUP BY 1
+;
