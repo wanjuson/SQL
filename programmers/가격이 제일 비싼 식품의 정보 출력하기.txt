@@ -1,0 +1,12 @@
+-- 가격이 제일 비싼 식품의 정보 출력하기
+SELECT
+    FP.*
+FROM FOOD_PRODUCT  FP
+    LEFT JOIN
+        (
+            SELECT MAX(PRICE) PRICE_MAX
+            FROM FOOD_PRODUCT
+        ) PM
+        ON FP.PRICE = PM.PRICE_MAX
+WHERE PM.PRICE_MAX IS NOT NULL
+;
