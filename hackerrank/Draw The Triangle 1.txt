@@ -1,0 +1,13 @@
+-- Draw The Triangle 1
+WITH RECURSIVE cte AS
+(
+    SELECT 18 AS n, concat('*', REPEAT(' *', 19))  AS str
+    UNION ALL
+    SELECT (n - 1) AS n, concat('*', REPEAT(' *', n))  AS str
+    FROM cte 
+    WHERE n > -1
+)
+SELECT 
+    str 
+FROM cte
+;
