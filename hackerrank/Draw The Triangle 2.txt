@@ -1,0 +1,19 @@
+-- Draw The Triangle 2
+WITH RECURSIVE  CTE AS
+(
+    SELECT 1 as n, CAST('*' AS CHAR(100)) as pattern
+    UNION ALL
+    SELECT (n + 1) as n, concat(pattern,' *')
+    FROM CTE 
+    WHERE n < 20
+)
+
+SELECT
+    pattern
+FROM CTE
+;
+
+ㅁ CAST('*' AS CHAR(100)) 하는 이유
+재귀적 CTE에서 행의 데이터 크기는 재귀적이지 않은 파트에 의해 정해진다
+이를 해결하기 위해선 재귀적이지 않은 파트에서 CAST를 통해 형 변환을 해줘야한다.
+https://velog.io/@sangmin7648/MySQL-WITH-RECURSIVE
