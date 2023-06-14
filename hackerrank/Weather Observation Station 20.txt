@@ -1,6 +1,4 @@
-
--- SQL Project Planning
-SET @counter=1;
+-- SQL Project PlanningSET @counter=1;
 
 WITH CTE0 AS
 (
