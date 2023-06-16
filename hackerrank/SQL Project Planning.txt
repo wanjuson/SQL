@@ -1,0 +1,26 @@
+
+-- SQL Project Planning
+SET @counter=1;
+
+WITH CTE0 AS
+(
+    SELECT Start_Date
+            , End_Date
+            , LAG(End_Date,1,Start_Date) OVER (ORDER BY Start_Date) as lag_date
+    FROM Projects
+)
+, CTE1 AS
+(
+    SELECT CTE0.*,
+            IF(CTE0.lag_date = CTE0.Start_Date, @counter, @counter:= @counter+1 ) as project_id
+    FROM CTE0
+)
+
+
+SELECT
+    MIN(CTE1.Start_Date) Start_Date_f
+    , MAX(CTE1.End_Date) End_Date_l
+FROM CTE1
+GROUP BY CTE1.project_id
+ORDER BY (MAX(End_Date)-MIN(CTE1.Start_Date)) ASC , MIN(CTE1.Start_Date) ASC
+;
