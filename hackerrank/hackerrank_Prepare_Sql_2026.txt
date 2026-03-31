@@ -15,3 +15,19 @@ GROUP BY
     C.founder
 ORDER BY C.company_code
 ;
+
+-- The PADS
+SELECT 
+    concat(name, '(', LEFT(OCCUPATION,1), ')')
+FROM OCCUPATIONS 
+order by name;
+
+SELECT concat('There are a total of ', cnt, ' ', LOWER(Occupation), 's.')
+from
+(
+SELECT OCCUPATION, count(*) cnt
+from OCCUPATIONS
+group by 1
+) a
+order by cnt
+;
