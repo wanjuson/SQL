@@ -1,0 +1,45 @@
+WITH streak AS (
+  SELECT hacker_id,
+         submission_date,
+         DATEDIFF(
+           submission_date,
+           (SELECT MIN(submission_date) FROM Submissions)
+         ) + 1 AS day_num,
+         COUNT(DISTINCT submission_date) OVER (
+           PARTITION BY hacker_id ORDER BY submission_date
+         ) AS active_days
+  FROM Submissions
+),
+consecutive AS (
+  SELECT hacker_id, submission_date, day_num
+  FROM streak
+  WHERE day_num = active_days   -- 하루도 빠짐없이 제출한 경우만
+),
+daily_count AS (
+  SELECT submission_date, COUNT(DISTINCT hacker_id) AS cnt
+  FROM consecutive
+  GROUP BY submission_date
+),
+daily_top AS (
+  SELECT hacker_id, submission_date, COUNT(*) AS subs
+  FROM Submissions
+  GROUP BY hacker_id, submission_date
+)
+SELECT
+  dc.submission_date,
+  dc.cnt,
+  (
+    SELECT hacker_id FROM daily_top t
+    WHERE t.submission_date = dc.submission_date
+    ORDER BY t.subs DESC, t.hacker_id ASC
+    LIMIT 1
+  ) AS top_hacker_id,
+  (
+    SELECT h.name FROM Hackers h
+    JOIN daily_top t ON h.hacker_id = t.hacker_id
+    WHERE t.submission_date = dc.submission_date
+    ORDER BY t.subs DESC, t.hacker_id ASC
+    LIMIT 1
+  ) AS top_name
+FROM daily_count dc
+ORDER BY dc.submission_date;
