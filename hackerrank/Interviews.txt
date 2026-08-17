@@ -1,0 +1,19 @@
+SELECT
+  co.contest_id,
+  co.hacker_id,
+  co.name,
+  SUM(v.total_views)      AS total_views,
+  SUM(v.total_unique_views) AS total_unique_views,
+  SUM(s.total_submissions)      AS total_submissions,
+  SUM(s.total_accepted_submissions) AS total_accepted_submissions
+FROM Contests co
+JOIN Colleges c        ON co.contest_id = c.contest_id
+JOIN Challenges ch      ON c.college_id = ch.college_id
+LEFT JOIN View_Stats v       ON ch.challenge_id = v.challenge_id
+LEFT JOIN Submission_Stats s ON ch.challenge_id = s.challenge_id
+GROUP BY co.contest_id, co.hacker_id, co.name
+HAVING SUM(v.total_views) > 0
+    OR SUM(v.total_unique_views) > 0
+    OR SUM(s.total_submissions) > 0
+    OR SUM(s.total_accepted_submissions) > 0
+ORDER BY co.contest_id;
