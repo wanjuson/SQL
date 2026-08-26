@@ -95,6 +95,12 @@ Claude는 여러분의 상황을 알지 못합니다. 대상 독자, 목적, 분
 # 홈/가이드/Claude에게 좋은 예시 주기: 퓨샷(few-shot) 프롬프트
 - https://usingclaude.com/ko/guides/start/claude-few-shot-examples
 
+# 홈/가이드/Claude 출력 형식 지정하기: 표·JSON·목록으로 받기
+- https://usingclaude.com/ko/guides/start/claude-output-format
+
+# 홈/가이드/Claude가 단계별로 생각하게 하기 (think step by step)
+- https://usingclaude.com/ko/guides/start/claude-step-by-step-thinking
+
 
 
 # 홈/가이드/시작하기/코딩 안 하는데 클로드 프로, 써볼 만할까요? 비개발자 관점 정리
