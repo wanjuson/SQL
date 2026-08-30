@@ -89,6 +89,12 @@ Claude는 여러분의 상황을 알지 못합니다. 대상 독자, 목적, 분
 7. 하지 말 것도 함께 정하기
 원하는 것뿐 아니라 피해야 할 것(예: "전문 용어는 쓰지 말 것", "추측은 빼고 확인된 사실만")을 함께 적으면 결과가 더 깔끔해집니다.
 
+# 홈/가이드/Claude에게 역할(페르소나) 부여하기: 더 정확한 답을 얻는 법
+- https://usingclaude.com/ko/guides/start/claude-persona-role
+
+# 홈/가이드/Claude에게 좋은 예시 주기: 퓨샷(few-shot) 프롬프트
+- https://usingclaude.com/ko/guides/start/claude-few-shot-examples
+
 
 
 # 홈/가이드/시작하기/코딩 안 하는데 클로드 프로, 써볼 만할까요? 비개발자 관점 정리
