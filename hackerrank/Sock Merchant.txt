@@ -1,5 +1,6 @@
-문제: 양말 색상이 담긴 배열이 주어질 때, 짝이 맞는 색상 쌍이 몇 개 만들어지는지 구하기.
-def sockMerchant(n, ar):
-    from collections import Counter
-    counts = Counter(ar)
-    return sum(v // 2 for v in counts.values())
+SELECT SUM(FLOOR(cnt / 2)) AS pairs
+FROM (
+    SELECT color, COUNT(*) AS cnt
+    FROM socks
+    GROUP BY color
+) t;
