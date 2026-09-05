@@ -1,4 +1,5 @@
 -- Draw The Triangle 1
+-- cte 사용해야함.
 WITH RECURSIVE cte AS
 (
     SELECT 18 AS n, concat('*', REPEAT(' *', 19))  AS str
