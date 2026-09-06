@@ -1,0 +1,9 @@
+SELECT IF(
+    EXISTS (
+        SELECT 1
+        FROM string1_chars a
+        JOIN string2_chars b ON a.ch = b.ch
+        LIMIT 1
+    ),
+    'YES', 'NO'
+) AS result;
