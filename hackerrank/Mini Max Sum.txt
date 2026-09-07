@@ -1,0 +1,4 @@
+SELECT
+    SUM(val) - MAX(val) AS min_sum,
+    SUM(val) - MIN(val) AS max_sum
+FROM numbers;
